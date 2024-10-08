@@ -1,0 +1,35 @@
+.NewsBlock {
+    border: 1px solid rgba(0, 0, 0, 0.1); /* ソフトな境界線 */
+    padding: 5px; /* 内側に余白を広げる */
+    margin: 5px; /* コンポーネント同士の間隔を広げる */
+    border-radius: 10px; /* 角を丸くする */
+    background: linear-gradient(135deg, #f0f4f8, #ffffff); /* 柔らかいグラデーション背景 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽いボックスシャドウ */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* ホバー時のアニメーションを追加 */
+  }
+  
+.NewsBlock:hover {
+    transform: translateY(-5px); /* マウスホバー時に浮き上がるエフェクト */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* シャドウを強調 */
+  }
+  
+.NewsBlock h1 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+.NewsBlock p {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #555;
+  }
+
+.NewsBlock img{
+    width: 50px; 
+    height: 50px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    object-fit: cover; /* 画像の表示を最適化 */
+}
+   
