@@ -1,25 +1,16 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit'; // combineReducersをインポート
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; // localStorageを使用
-import likeCounterReducer from './components/Redux/Slice/LikeCountSlice'; // likeCounterリデューサーのインポート
-import searchReducer from './components/Redux/Slice/SearchSlice'; // searchリデューサーのインポート
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import likeCounterReducer from './components/Redux/Slice/LikeCountSlice'; 
+import searchReducer from './components/Redux/Slice/SearchSlice'; 
 
-// パーシスト設定
-const persistConfig = {
-  key: 'root',
-  storage,
-};
-
+// 複数のリデューサーを結合
 const rootReducer = {
   search: searchReducer,
   likeCounter: likeCounterReducer,
 };
 
-const persistedReducer = persistReducer(persistConfig, combineReducers(rootReducer));
-
+// 通常のReduxストアを構成
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: combineReducers(rootReducer),
 });
 
-export const persistor = persistStore(store);
 export default store;
