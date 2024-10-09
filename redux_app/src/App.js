@@ -51,7 +51,6 @@ const App = () => {
                   )
                 }
               />
-
               {/* 記事詳細ページを動的ルートで表示 */}
               <Route path="/Kiji/:id" element={<NewsDetail />} />
             </Routes>
