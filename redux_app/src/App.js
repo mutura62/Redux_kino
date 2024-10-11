@@ -4,14 +4,14 @@ import { useSelector } from "react-redux";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import SearchNews from "./components/SearchNews";
 import NewsBlock from "./components/NewsBlock";
-import NewsDetail from "./components/NewsDetail"; // 修正: 正しいコンポーネントをインポート
+import NewsEdit from "./components/NewsEdit"; 
 import Kiji from "./data/kiji.json";
 import { Provider } from 'react-redux';
 import store from './store'; 
 
 const App = () => {
   // Reduxストアから検索キーワードを取得
-  const searchTerm = useSelector((state) => state.search.SearchWord);
+  const searchTerm = useSelector((state) => state.search.SearchWord) || "";
 
   // 検索キーワードでKijiをフィルタリング
   const filteredKiji = Kiji.filter(
@@ -52,7 +52,7 @@ const App = () => {
                 }
               />
               {/* 記事詳細ページを動的ルートで表示 */}
-              <Route path="/Kiji/:id" element={<NewsDetail />} />
+              <Route path="/Kiji/:id" element={<NewsEdit />} />
             </Routes>
           </div>
         </BrowserRouter>
